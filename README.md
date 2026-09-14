@@ -1,6 +1,6 @@
 # cli-statusline
 
-The Claude Code status line from the Windows workstation, kept here so it can be installed identically on other machines.
+A compact Claude Code status line: model, session cost, context usage and both rate-limit windows as colored pills, with one-command installers for Windows, macOS and Linux.
 
 ![statusline](docs/statusline.png)
 
@@ -43,6 +43,10 @@ Everything is at the top of `statusline.py`:
 - `GRAD`: the bar glyph ramp; `bar_w` in `main()` is the bar width (7)
 - `LCAP` / `RCAP`: empty by default (flat pills); set to Powerline half-circles or arrows for rounded caps
 
+## Reference image
+
+`docs/render.py` regenerates `docs/statusline.png` from the script's own colors and bar ramp (needs Pillow and a monospace font with braille glyphs).
+
 ## Cache file
 
-The script writes `~/.claude/statusline-cache.json` (last model, cost, context %, 5h/7d usage with reset deadlines, `usage_schema: 2`) so the pills stay populated between Claude Code updates that omit fields. On the origin machine the Windhawk Island mod reads that file; nothing else depends on it.
+The script writes `~/.claude/statusline-cache.json` (last model, cost, context %, 5h/7d usage with reset deadlines, `usage_schema: 2`) so the pills stay populated between Claude Code updates that omit fields. Nothing else depends on it; delete it any time.
